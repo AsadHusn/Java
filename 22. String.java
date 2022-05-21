@@ -2,6 +2,9 @@
 strings are immutable | not changeable
 by string literal
 by new keyword
+Strings are object in java not array of chars
+Strings are not ends with '\0' in java
+You can read a char from a specific index with charAt(int index) but you can not modify it.
 */
 
 class Main{
@@ -16,10 +19,13 @@ class Main{
         char name[] = {'R', 'A', 'M', 'A', 'N'};
         // using range
         String str3 = new String(name, 2, 3);
-        
+
         // length
         int len = str.length();
 
+        // concatenate
+        String str4 = "Java" + "Programming";
+        System.out.println(str4);
         
     }
 }
