@@ -5,6 +5,7 @@ by new keyword
 Strings are object in java not array of chars
 Strings are not ends with '\0' in java
 You can read a char from a specific index with charAt(int index) but you can not modify it.
+string characters cannot access with index like s[1]
 */
 
 class Main{

@@ -1,3 +1,11 @@
+/* compareTo Function
+if equal return 0
+if greater return positive int
+if smaller return negative int
+case sensitive
+check order of characters
+*/
+
 class Main{
     public static void main(String args[]){
         String[] str = {"Shaheen", "Maira", "Asad", "Ahsan", "Kamran"};

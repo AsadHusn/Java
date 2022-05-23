@@ -1,12 +1,9 @@
 class Test{
     public static void main(String args[]){
-        String s = "Hello";
-        System.out.println(s[0]);
+        String s = "Asad";
+        char a[] = s.toCharArray();
+        char ch = s.charAt(3);
+        System.out.println(ch);
 
-
-
-        // for(int i=0; i<s.length(); i++){
-        //     System.out.print(s[i]);
-        // }
     }
 }

@@ -2,6 +2,9 @@ class Main{
     public static void main(String args[]){
         String str = "Hello";
 
+        // get character with charAt
+        char ch = str.charAt(3);
+
         // change string into char array
         char[] array = str.toCharArray();
 
