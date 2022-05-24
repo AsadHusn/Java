@@ -1,9 +1,16 @@
-class Test{
+// Create Thread by using Thread Class
+import java.lang.Thread;
+
+class Main{
     public static void main(String args[]){
-        String s = "Asad";
-        char a[] = s.toCharArray();
-        char ch = s.charAt(3);
-        System.out.println(ch);
+        // newborn state
+        A a = new A();
+        
 
     }
+}
+
+class A extends Thread{
+    // implement run() method
+    // public must use
 }
