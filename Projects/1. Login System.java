@@ -4,18 +4,103 @@ import java.io.FileWriter;
 
 class Main{
     public static void main(String args[]){
-        Scanner scanner = new Scanner(System.in);
-        String username, password, un, pw;
+        File file = new File("data.txt");
+
         while(true){
-            System.out.println("----------\n1. Login\n2. Register\n3. Exit\nSelect: ");
-            char choice = scanner.next().charAt(0);
+            System.out.println("----------\n1. Login\n2. Register\n3. Exit");
+            System.out.print("Select: ");
+            char choice = new Scanner(System.in).next().charAt(0);
+
             if(choice == '1'){
+                // check file exists
+                if(!file.exists()){
+                    System.out.println("\tFile Error ");
+                    return;
+                }
+                // input username & password
+                String username, password, un, pw;
+                Scanner scanner = new Scanner(System.in);
+                System.out.print("Enter username: ");
+                username = scanner.nextLine();
+                System.out.print("Enter password: ");
+                password = scanner.nextLine();
                 try{
-                    File file = new File("data.txt");
-                    if(file.)
+                    // read from file
+                    scanner = new Scanner(file);
+                    boolean found = false;
+                    while(scanner.hasNextLine()){
+                        un = scanner.nextLine();
+                        pw = scanner.nextLine();
+                        // check username
+                        if(username.compareTo(un) == 0){
+                            // check password
+                            if(password.compareTo(pw) == 0){
+                                System.out.println("\tWelcome " + un + "!");
+                            }else{
+                                System.out.println("\tPassword Incorrect");
+                            }
+                            found = true;
+                            break;
+                        }
+                    }
+                    // false login
+                    if(!found){
+                        System.out.println("\tFalse Login");
+                    }
+                }catch(Exception e){
+                    System.out.println("File error");
                 }
             }
-            
+
+            else if(choice == '2'){
+                String username, password, un, pw;
+                // input username
+                System.out.print("Enter username: ");
+                username = new Scanner(System.in).nextLine();
+                // check if user already exist
+                try{
+                    // read from file
+                    Scanner scanner = new Scanner(file);
+                    boolean found = false;
+                    while(scanner.hasNextLine()){
+                        un = scanner.nextLine();
+                        // skip password line
+                        pw = scanner.nextLine();
+                        // check username
+                        if(username.compareTo(un) == 0){
+                            System.out.println("\tUser already exist");
+                            found = true;
+                            break;
+                        }
+                    }
+                    if(found)
+                    continue;
+                }catch(Exception e){
+                    System.out.println("Read Error");
+                }
+                // input password
+                System.out.print("Enter password: ");
+                password = new Scanner(System.in).nextLine();
+                // write to file
+                try{
+                    FileWriter writer = new FileWriter(file);
+                    writer.write(username + "\n");
+                    writer.write(password + "\n");
+                    writer.close();
+                    System.out.println("\tRegister Successfully!");
+                }catch(Exception e){
+                    System.out.println("Writer Error");
+                }
+            }
+
+            else if(choice == '3'){
+                return;
+            }
+
+            else{
+                System.out.println("\twrong input");
+                continue;
+            }
         }
     }
 }

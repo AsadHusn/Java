@@ -1,5 +1,12 @@
 // createNewFile()
 // getName()
+/* methods
+exists()
+canWrite()
+canRead()
+compareTo()
+
+*/
 
 import java.io.File;
 import java.io.IOException;
