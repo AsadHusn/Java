@@ -14,7 +14,7 @@ class Main{
             if(choice == '1'){
                 // check file exists
                 if(!file.exists()){
-                    System.out.println("\tFile Error ");
+                    System.out.println("\tEmpty");
                     return;
                 }
                 // input username & password
@@ -59,6 +59,10 @@ class Main{
                 username = new Scanner(System.in).nextLine();
                 // check if user already exist
                 try{
+                    // check file exists
+                    if(!file.exists()){
+                        file.createNewFile();
+                    }
                     // read from file
                     Scanner scanner = new Scanner(file);
                     boolean found = false;
@@ -83,7 +87,8 @@ class Main{
                 password = new Scanner(System.in).nextLine();
                 // write to file
                 try{
-                    FileWriter writer = new FileWriter(file);
+                    // append file
+                    FileWriter writer = new FileWriter(file, true);
                     writer.write(username + "\n");
                     writer.write(password + "\n");
                     writer.close();
