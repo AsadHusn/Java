@@ -13,7 +13,7 @@ import java.io.IOException;
 
 class Main{
     public static void main(String args[]){
-        File file = new File("asad.txt");
+        File file = new File("data.txt");
         try{
             if(file.createNewFile()){
                 System.out.println("Created");
